@@ -1,0 +1,40 @@
+; Include forcefield parameters
+#include "amber99sb-star-ildn-mut.ff/forcefield.itp"
+
+#include "atomtypes.itp"
+
+; Include water topology
+#include "amber99sb-star-ildn-mut.ff/tip3p.itp"
+
+; Include topology for ions
+#include "amber99sb-star-ildn-mut.ff/ions.itp"
+
+#include "rnap-5uh6-alpha_1.itp"
+#include "rnap-5uh6-alpha_2.itp"
+#include "rnap-5uh6-beta_s450l_qoff.itp"
+#include "rnap-5uh6-beta_prime.itp"
+#include "rnap-5uh6-omega.itp"
+#include "rnap-5uh6-sigma.itp"
+#include "rnap-5uh6-dna_1.itp"
+#include "rnap-5uh6-dna_2.itp"
+#include "rnap-5uh6-rna_2nt.itp"
+
+[ system ]
+; Name
+S450L rpoB complex with rifampicin bound (PDB:5UH6)
+
+[ molecules ]
+; Compound         #mols
+RNAP_ALPHA_1         1
+RNAP_ALPHA_2         1
+RNAP_BETA            1
+RNAP_BETA_PRIME      1
+RNAP_OMEGA           1
+RNAP_SIGMA           1
+DNA_1                1
+DNA_2                1
+RNA_2NT              1
+ZN                   2
+MG                   1
+SOL             114838
+NA                 127

@@ -1,0 +1,75 @@
+integrator              = sd
+tinit                   = 0.0
+dt                      = 0.002
+nsteps                  = 250000
+nstxout                 = 100000
+nstvout                 = 100000
+nstfout                 = 100000
+nstlog                  = 5000
+nstenergy               = 5000
+nstxout-compressed      = 5000
+compressed-x-precision  = 1000
+coulombtype             = pme
+rlist                   = 1.35
+rcoulomb                = 1.2
+vdw_type                = cutoff
+rvdw_switch             = 0.9
+rvdw                    = 1.2
+cutoff-scheme           = verlet
+coulomb-modifier        = potential-shift-verlet
+vdw-modifier            = potential-shift-verlet
+verlet-buffer-tolerance = 0.005
+tc_grps                 = System
+tau_t                   = 2.0
+ref_t                   = 310.0
+pcoupl                  = Parrinello-Rahman
+pcoupltype              = isotropic
+tau_p                   = 1.0
+compressibility         = 4.46e-5
+ref_p                   = 1.0
+
+gen_vel                 = no
+gen_temp                = 310
+gen-seed                = -1
+
+constraints             =  h-bonds
+constraint_algorithm    =  lincs
+lincs-order             =  8
+
+; EWALD/PME/PPPM parameters
+pme_order               = 6
+ewald_rtol              = 1e-06
+ewald_geometry          = 3d
+epsilon_surface         = 0
+optimize_fft            = no
+
+; Free energy
+free_energy              = yes
+init-lambda-state        = 6
+calc-lambda-neighbors    = -1
+restraint-lambdas        = 0 0.143 0.286 0.429 0.571 0.714 0.857 1.0
+coul-lambdas             = 0 0 0 0 0 0 0 0
+vdw-lambdas              = 0 0 0 0 0 0 0 0
+sc-alpha                 = 0.5
+sc-r-power               = 6
+sc-power                 = 1
+separate-dhdl-file       = yes
+dhdl-print-energy        = total
+
+refcoord-scaling         = all
+
+pull                     = yes
+pull-coord1-type         = umbrella
+pull-coord1-geometry     = distance
+pull-coord1-dim          = Y Y Y
+pull-coord1-start        = no
+pull-ngroups             = 2
+pull-coord1-init         = 0.5778    ; the distance to restrain
+pull-pbc-ref-prev-step-com = yes
+pull-coord1-groups       = 1 2
+pull-coord1-k            = 1000
+pull-coord1-kB           = 0
+pull-group1-name         = LIGAND
+pull-group2-name         = RNAP_BETA
+pull-group1-pbcatom      = 52120
+pull-group2-pbcatom      = 13699

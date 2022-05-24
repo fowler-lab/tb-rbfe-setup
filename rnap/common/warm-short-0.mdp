@@ -1,0 +1,46 @@
+include                 =  -I../common/
+integrator           = sd
+tinit                = 0.0
+dt                   = 0.001
+nsteps               = 500
+nstxout              = 1000000
+nstvout              = 1000000
+nstfout              = 1000000
+nstlog               = 50
+nstenergy            = 50000
+nstxout-compressed            = 5000
+compressed-x-precision        = 1000
+coulombtype          = pme
+rlist                = 1.35
+rcoulomb             = 1.2
+vdw_type             = cutoff
+rvdw_switch          = 0.9
+rvdw                 = 1.2
+cutoff-scheme        = verlet
+coulomb-modifier     = potential-shift-verlet
+vdw-modifier         = potential-shift-verlet
+verlet-buffer-tolerance  = 0.005
+tc_grps                 =  System
+tau_t                   =  2.0
+ref_t                   =  310.0
+pcoupl                  =  berendsen
+pcoupltype              =  isotropic
+tau_p                   =  1.0
+compressibility         =  4.46e-5
+ref_p                   =  1.0
+
+; warm up
+gen_vel              = no
+annealing = single
+annealing-time = 0 5
+annealing-temp = 0 310
+annealing-npoints = 2
+
+; with free energy on!
+free-energy              = yes
+sc-alpha                 = 0.5
+sc-r-power               = 6
+sc-power                 = 1
+init-lambda-state        = 0
+
+vdw-lambdas              = 0.000 0.143 0.286 0.429 0.571 0.714 0.857 1.000

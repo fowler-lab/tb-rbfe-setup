@@ -1,0 +1,52 @@
+integrator              = sd
+tinit                   = 0.0
+dt                      = 0.001
+nsteps                  = 700
+nstxout                 = 1000
+nstvout                 = 1000
+nstfout                 = 1000
+nstlog                  = 500
+nstenergy               = 500
+nstxout-compressed      = 100
+compressed-x-precision  = 100
+coulombtype             = pme
+rlist                   = 1.35
+rcoulomb                = 1.2
+vdw_type                = cutoff
+rvdw_switch             = 0.9
+rvdw                    = 1.2
+cutoff-scheme           = verlet
+coulomb-modifier        = potential-shift-verlet
+vdw-modifier            = potential-shift-verlet
+verlet-buffer-tolerance = 0.005
+tc_grps                 = System
+tau_t                   = 2.0
+ref_t                   = 310.0
+pcoupl                  = Parrinello-Rahman
+pcoupltype              = isotropic
+tau_p                   = 1.0
+compressibility         = 4.46e-5
+ref_p                   = 1.0
+
+gen_vel                 = yes
+gen_temp                = 310
+gen-seed                = 111
+
+constraints             = none
+
+; EWALD/PME/PPPM parameters
+pme_order                = 6
+ewald_rtol               = 1e-06
+ewald_geometry           = 3d
+epsilon_surface          = 0
+optimize_fft             = no
+
+; Free energy control stuff
+free_energy              = yes
+init_lambda              = 0
+delta_lambda             = 1.4286e-3
+sc-alpha                 = 0.1
+sc-r-power               = 6
+sc-power                 = 1
+
+
