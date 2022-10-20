@@ -6,22 +6,20 @@ The files and scripts in this repository are intended to help anyone reproduce u
 * the Ala90Val mutation affects the binding free energies of moxifloxacin to the _M. tuberculosis_ DNA gyase
 * the Ser450Leu mutation affects the binding free energies of moxifloxacin to the _M. tuberculosis_ RNA polymerase
 
-These (and other) mutations are studied in this preprint:
+These (and other) mutations are studied in this manuscript:
 
 > Predicting antibiotic resistance in complex protein targets using alchemical free energy methods
 > 
 > Alice E Brankin and Philip W Fowler
 > 
-> [doi:10.26434/chemrxiv-2021-shfgp](https://doi.org/10.26434/chemrxiv-2021-shfgp)
-
-This manuscript is currently under review and when published in a peer-reviewed journal we will update this README.
+> [J Comp Chem (2022) 43:1371](https://doi.org/10.1002/jcc.26979)
 
 As described in the Methods, each mutation is seeded from a different structure taken from a molecular dynamics simulation. Each mutation here has ten apo and ten drug-bound structures. Despite the alchembed step which aims to gradually introduce the mutation into the structure, not all simulations are expected to complete successfully as some will crash, presumably due to steric clashes. If this occurs, either move onto the next structure, or you may wish to experiment with e.g. reducing the timestep from 2 fs to 1 fs and removing bond constraints.
 
 Since the alchemical free energies themselves are calculated via thermodynamic integration you can either calculate them using simple command line tools like `awk` etc or use a standard tool that is compatible from GROMACS `dudl.xvg` files.
 
 Alice E Brankin and Philip W Fowler
-24 May 2022
+20 Oct 2022
 
 ## Structure of repository
 
